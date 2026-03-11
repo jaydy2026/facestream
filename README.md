@@ -29,7 +29,7 @@ uv run modal serve facestream.main
 Or this command to deploy it:
 
 ```
-uv run modal deploy facestream.main
+uv run modal deploy -m facestream.main
 ```
 
 ### Optional: TURN Server for Cellular Networks

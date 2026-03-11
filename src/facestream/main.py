@@ -37,7 +37,7 @@ app = modal.App(name="facestream", image=web_image)
 
 @app.cls(
     gpu="T4",
-    container_idle_timeout=60,
+    scaledown_window=60,
     cpu=16,
     timeout=120,
     volumes={
@@ -55,8 +55,8 @@ app = modal.App(name="facestream", image=web_image)
     #         required_keys=[SECRET_KEY_TURN_TOKEN_ID, SECRET_KEY_TURN_API_TOKEN],
     #     )
     # ],
-    allow_concurrent_inputs=4,
 )
+@modal.concurrent(max_inputs=4)
 class Main:
     @modal.enter()
     def load(self):
