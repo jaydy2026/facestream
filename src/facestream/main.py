@@ -134,6 +134,8 @@ class Main:
             pc = None
             try:
                 pc = RTCPeerConnection()
+                source_face = None
+                data = None
 
                 while True:
                     try:
