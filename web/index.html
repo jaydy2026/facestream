@@ -183,6 +183,15 @@
         transform: scale(1.05);
         border-color: #4caf50;
       }
+      .preset-sources {
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 12px;
+        line-height: 1.5;
+        margin: 0 0 20px 0;
+      }
+      .preset-sources a {
+        color: inherit;
+      }
       .divider {
         color: white;
         margin: 20px 0;
@@ -286,42 +295,57 @@
       <label class="upload-label">Select one of the preset images</label>
       <div class="image-grid">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Dwayne_%22The_Rock%22_Johnson_Visits_the_Pentagon_%2841%29_%28cropped%29.jpg/579px-Dwayne_%22The_Rock%22_Johnson_Visits_the_Pentagon_%2841%29_%28cropped%29.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Dwayne_Johnson_2018.jpg/500px-Dwayne_Johnson_2018.jpg"
           class="preset-image disabled"
           onclick="selectPresetImage(this.src)"
           alt="A picture of Dwayne Johnson"
         />
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Michelle_Obama_at_SNHU_October_2016.jpg/770px-Michelle_Obama_at_SNHU_October_2016.jpg?download"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Michelle_Obama_2013_official_portrait.jpg/960px-Michelle_Obama_2013_official_portrait.jpg"
           class="preset-image disabled"
           onclick="selectPresetImage(this.src)"
           alt="A picture of Michelle Obama"
         />
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/AdamScott.jpg/480px-AdamScott.jpg?download"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Adam_Scott_-_Severance.jpg/960px-Adam_Scott_-_Severance.jpg"
           class="preset-image disabled"
           onclick="selectPresetImage(this.src)"
           alt="A picture of Adam Scott"
         />
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Selena_Gomez_at_the_2024_Toronto_International_Film_Festival_10_%28cropped%29.jpg/534px-Selena_Gomez_at_the_2024_Toronto_International_Film_Festival_10_%28cropped%29.jpg?download"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Selena_Gomez_UNICEF_3%2C_2012_%28headshot%29.jpg/960px-Selena_Gomez_UNICEF_3%2C_2012_%28headshot%29.jpg"
           class="preset-image disabled"
           onclick="selectPresetImage(this.src)"
           alt="A picture of Selena Gomez"
         />
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/LeBron_James_Wiz.jpg/724px-LeBron_James_Wiz.jpg?download"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/LeBron_James_%2851959977144%29_%28cropped2%29.jpg/960px-LeBron_James_%2851959977144%29_%28cropped2%29.jpg"
           class="preset-image disabled"
           onclick="selectPresetImage(this.src)"
           alt="A picture of LeBron James"
         />
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Lucy_Liu_%40_USAID_Human_Trafficking_Symposium_01_%28cropped%29.jpg/672px-Lucy_Liu_%40_USAID_Human_Trafficking_Symposium_01_%28cropped%29.jpg?download"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Lucy_Liu_at_the_2024_Toronto_International_Film_Festival_2.jpg/960px-Lucy_Liu_at_the_2024_Toronto_International_Film_Festival_2.jpg"
           class="preset-image disabled"
           onclick="selectPresetImage(this.src)"
           alt="A picture of Lucy Liu"
         />
       </div>
+      <p class="preset-sources">
+        Preset photos via Wikimedia Commons:
+        <a href="https://commons.wikimedia.org/wiki/File:Dwayne_Johnson_2018.jpg" target="_blank">Dwayne Johnson</a>
+        (CC BY 3.0),
+        <a href="https://commons.wikimedia.org/wiki/File:Michelle_Obama_2013_official_portrait.jpg" target="_blank">Michelle Obama</a>
+        (public domain),
+        <a href="https://commons.wikimedia.org/wiki/File:Adam_Scott_-_Severance.jpg" target="_blank">Adam Scott</a>
+        (CC BY 4.0),
+        <a href="https://commons.wikimedia.org/wiki/File:Selena_Gomez_UNICEF_3,_2012_(headshot).jpg" target="_blank">Selena Gomez</a>
+        (CC BY-SA 2.0),
+        <a href="https://commons.wikimedia.org/wiki/File:LeBron_James_(51959977144)_(cropped2).jpg" target="_blank">LeBron James</a>
+        (CC BY 2.0),
+        <a href="https://commons.wikimedia.org/wiki/File:Lucy_Liu_at_the_2024_Toronto_International_Film_Festival_2.jpg" target="_blank">Lucy Liu</a>
+        (CC BY-SA 4.0).
+      </p>
       <div class="divider">
         <span>OR</span>
       </div>
