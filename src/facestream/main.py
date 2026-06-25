@@ -18,6 +18,11 @@ from facestream.constants import (
     MODEL_CACHE_DIR,
     SECRET_KEY_TURN_API_TOKEN,
     SECRET_KEY_TURN_TOKEN_ID,
+    IDENTITY_STRENGTH,
+    SKIN_TONE_MATCH,
+    SKIN_SMOOTHING,
+    FACE_ENHANCE,
+    PASTE_BACK,
 )
 from facestream.faceswap import FaceSwap
 from facestream.track import ProcessFrameTrack
@@ -60,7 +65,13 @@ app = modal.App(name="facestream", image=web_image)
 class Main:
     @modal.enter()
     def load(self):
-        self.faceswap = FaceSwap()
+        self.faceswap = FaceSwap(
+            identity_strength=IDENTITY_STRENGTH,
+            skin_tone_match=SKIN_TONE_MATCH,
+            skin_smoothing=SKIN_SMOOTHING,
+            face_enhance=FACE_ENHANCE,
+            paste_back=PASTE_BACK,
+        )
         self.turn_token_id = os.environ.get(SECRET_KEY_TURN_TOKEN_ID)
         self.turn_api_token = os.environ.get(SECRET_KEY_TURN_API_TOKEN)
 
