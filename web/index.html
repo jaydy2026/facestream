@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FaceStream</title>
+    <title>FaceStream - Realtime Face Transformation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/heic2any@0.0.4/dist/heic2any.min.js"></script>
     <style>
@@ -570,11 +570,10 @@
 
       async function start() {
         try {
-          const hostname = window.location.hostname.includes("modal.run")
-            ? window.location.hostname
-            : "philipp-eisen--facestream-main-web.modal.run";
-
-          ws = new WebSocket(`wss://${hostname}/ws`);
+          // Use current hostname for WebSocket connection
+          const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+          const hostname = window.location.hostname;
+          ws = new WebSocket(`${protocol}//${hostname}/ws`);
 
           ws.onopen = () => {
             console.log("WebSocket connected");

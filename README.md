@@ -1,63 +1,61 @@
-# FaceStream
+# FaceStream - Realtime Face Transformation Platform
 
-This is a web app that let's you swap your face in real-time without having a powerful
-machine. You can try it out live [here](https://facestream.phileisen.com).
-
-See the gif below for a demo:
+**Become anyone in real-time.** Upload a face image and transform your webcam feed instantly.
 
 [![Demo](assets/demo.gif)](https://facestream.phileisen.com)
 
-## Motivation
+## Features
 
-I discovered the [Deep Live Cam](https://github.com/hacksider/Deep-Live-Cam) project and tried to run it on my M1 MacBook, but only got 0.5 FPS. So I wanted to explore how fast and at what latency you could get this to run on a remote server via WebRTC.
+- **Real-time Face Swapping** - Transform your webcam feed in real-time using GPU-accelerated cloud processing
+- **Low Latency** - Optimized frame pipeline with WebRTC for minimal delay
+- **Browser-based** - No installation required, works directly in your browser
+- **Mobile Compatible** - Works on iOS Safari and Android Chrome (with TURN server)
+- **OBS/Streaming Ready** - Output can be used with virtual camera software
 
-## How to run this yourself
+## Quick Start
 
 ### Prerequisites
 
-To run this yourself you wil need:
+- [uv](https://docs.astral.sh/uv/) - Python package manager
+- [Modal](https://modal.com/) account with GPU credits
 
-- [uv](https://docs.astral.sh/uv/)
-- A [modal](https://modal.com/) account as well configured credentials
+### Deployment
 
-Then you can run the following command to start the server:
+```bash
+# Install dependencies
+uv sync
 
-```
-uv run modal serve facestream.main
-```
-
-Or this command to deploy it:
-
-```
+# Deploy to Modal
 uv run modal deploy -m facestream.main
 ```
 
-### Optional: TURN Server for Cellular Networks
+### Optional: TURN Server for Mobile/Cellular
 
-On most cellular networks you need a TURN server for WebRTC to work. You can create a TURN app on [Cloudflare](https://developers.cloudflare.com/calls/turn/). To use those with this app you need to:
+For WebRTC to work on cellular networks:
 
-1. Create a secret called `facestream` in modal with the following values:
+1. Create a TURN app on [Cloudflare](https://developers.cloudflare.com/calls/turn/)
+2. Create a Modal secret:
+   ```bash
+   modal secret create facestream \
+     TURN_TOKEN_ID=your-turn-token-id \
+     TURN_API_TOKEN=your-turn-api-token
+   ```
+3. Uncomment the secrets section in `src/facestream/main.py`
 
-```
-TURN_TOKEN_ID=your-turn-token-id
-TURN_API_TOKEN=your-turn-api-token
-```
+## Usage
 
-2.  Comment out the following line in [src/facestream/main.py](src/facestream/main.py):
+1. Open the deployed application in your browser
+2. Upload a face image (JPG, PNG, or HEIC)
+3. Grant camera permissions when prompted
+4. Watch yourself become the uploaded face in real-time
 
-```
-...
-secrets=[
-    modal.Secret.from_name(
-        "facestream",
-        required_keys=[SECRET_KEY_TURN_TOKEN_ID, SECRET_KEY_TURN_API_TOKEN],
-    )
-]
-...
-```
+## Documentation
 
-## Credits
+- [ARCHITECTURE.md](ARCHITECTURE.md) - Detailed system architecture
+- [DEPLOYMENT.md](DEPLOYMENT.md) - Full deployment guide
+- [MOBILE.md](MOBILE.md) - Mobile usage guide
+- [ROADMAP.md](ROADMAP.md) - Future development roadmap
 
-- This project was inspired by and uses the model of [Deep Live Cam](https://github.com/hacksider/Deep-Live-Cam). Go check out their project. They have some extra features that I didn't implement here. Note that the model used in that project (and therefore also this one) is only for non-commercial use.
+## License
 
-- [Modal](https://modal.com) made this easy to build and deploy. They are generously providing free credits to host the live demo.
+This project uses the INSwapper model from [Deep Live Cam](https://github.com/hacksider/Deep-Live-Cam), which is **for non-commercial use only**.
