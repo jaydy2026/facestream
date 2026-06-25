@@ -8,6 +8,7 @@
 
 - **Real-time Face Swapping** - Transform your webcam feed in real-time using GPU-accelerated cloud processing
 - **Low Latency** - Optimized frame pipeline with WebRTC for minimal delay
+- **Identity Preservation** - Configurable enhancement to prevent source feature leakage
 - **Browser-based** - No installation required, works directly in your browser
 - **Mobile Compatible** - Works on iOS Safari and Android Chrome (with TURN server)
 - **OBS/Streaming Ready** - Output can be used with virtual camera software
@@ -49,12 +50,25 @@ For WebRTC to work on cellular networks:
 3. Grant camera permissions when prompted
 4. Watch yourself become the uploaded face in real-time
 
+## Identity Preservation
+
+The system includes configurable identity enhancement to prevent source feature leakage:
+
+```python
+# In src/facestream/constants.py
+IDENTITY_STRENGTH = 0.7    # 0.0-1.0, higher = stronger source identity
+SKIN_TONE_MATCH = True     # Apply histogram matching for skin tone
+SKIN_SMOOTHING = True      # Apply bilateral filtering for smooth skin
+FACE_ENHANCE = False       # Apply face detail enhancement (adds latency)
+```
+
 ## Documentation
 
 - [ARCHITECTURE.md](ARCHITECTURE.md) - Detailed system architecture
 - [DEPLOYMENT.md](DEPLOYMENT.md) - Full deployment guide
 - [MOBILE.md](MOBILE.md) - Mobile usage guide
 - [ROADMAP.md](ROADMAP.md) - Future development roadmap
+- [TROUBLESHOOTING.md](TROUBLESHOOTING.md) - Common issues and solutions
 
 ## License
 
