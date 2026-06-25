@@ -5,6 +5,27 @@ build/
 dist/
 wheels/
 *.egg-info
+*.pyc
+.mypy_cache/
+.pytype/
 
 # Virtual environments
 .venv
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Modal
+.modal/
+*.modal
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
